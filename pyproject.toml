@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "llamove"
+version = "0.1.0"
+description = "Interesting LLM stuff"
+authors = ["Jun Yu <jy8230@gmail.com>", "Fan Pu <fanpu@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.102.0"
+uvicorn = "^0.23.2"
+loguru = "^0.7.0"
+python-dotenv = "^1.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+ruff = "^0.0.286"
+black = "^23.7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py39', 'py310', 'py311']
+include = '\.pyi?$'
+exclude = '''
+/(
+  \.toml
+  |\.sh
+  |\.git
+  |\.ini
+  |Dockerfile
+  |Jenkinfile
+)/
+'''
+
+[tool.ruff]
+# Enable the pycodestyle (`E`), Pyflakes (`F`) isort (`I`) rules.
+select = ["E", "F", "I"]
+ignore = []
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+fixable = ["E", "F", "I"]
